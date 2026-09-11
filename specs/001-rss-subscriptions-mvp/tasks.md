@@ -10,9 +10,9 @@
 
 **Purpose**: Create the project structure and establish the shared local-development configuration for the backend and frontend.
 
-- [ ] T001 Create backend project structure under `backend/RSSFeedReader.Api/` with `Controllers`, `Models`, `Services`, and `Program.cs`
-- [ ] T002 Create frontend project structure under `frontend/RSSFeedReader.UI/` with `Pages`, `Services`, and `Program.cs`
-- [ ] T003 [P] Align local development configuration for backend port, frontend port, and `appsettings.json` API base URL in the expected project files
+- [X] T001 Create backend project structure under `backend/RSSFeedReader.Api/` with `Controllers`, `Models`, `Services`, and `Program.cs`
+- [X] T002 Create frontend project structure under `frontend/RSSFeedReader.UI/` with `Pages`, `Services`, and `Program.cs`
+- [X] T003 [P] Align local development configuration for backend port, frontend port, and `appsettings.json` API base URL in the expected project files
 
 ---
 
@@ -22,12 +22,12 @@
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel.
 
-- [ ] T004 Create `Subscription` model in `backend/RSSFeedReader.Api/Models/Subscription.cs` with URL-based data and basic validation requirements
-- [ ] T005 [P] Implement in-memory subscription storage in `backend/RSSFeedReader.Api/Services/SubscriptionStore.cs`
-- [ ] T006 [P] Configure CORS and API middleware in `backend/RSSFeedReader.Api/Program.cs`
-- [ ] T007 [P] Create the Blazor subscriptions page shell in `frontend/RSSFeedReader.UI/Pages/Subscriptions.razor` for the add form and list display
-- [ ] T008 Add API client abstraction in `frontend/RSSFeedReader.UI/Services/SubscriptionApiClient.cs` for create and read operations
-- [ ] T009 Validate startup behavior and confirm the frontend can reach the backend without routing or connection errors
+- [X] T004 Create `Subscription` model in `backend/RSSFeedReader.Api/Models/Subscription.cs` with URL-based data and basic validation requirements
+- [X] T005 [P] Implement in-memory subscription storage in `backend/RSSFeedReader.Api/Services/SubscriptionStore.cs`
+- [X] T006 [P] Configure CORS and API middleware in `backend/RSSFeedReader.Api/Program.cs`
+- [X] T007 [P] Create the Blazor subscriptions page shell in `frontend/RSSFeedReader.UI/Pages/Subscriptions.razor` for the add form and list display
+- [X] T008 Add API client abstraction in `frontend/RSSFeedReader.UI/Services/SubscriptionApiClient.cs` for create and read operations
+- [X] T009 Validate startup behavior and confirm the frontend can reach the backend without routing or connection errors
 
 ---
 
@@ -39,11 +39,11 @@
 
 ### Implementation for User Story 1
 
-- [ ] T010 [US1] Implement `POST /api/subscriptions` in `backend/RSSFeedReader.Api/Controllers/SubscriptionsController.cs` to accept a URL and return current subscription list
-- [ ] T011 [US1] Add validation for blank and duplicate submissions in `backend/RSSFeedReader.Api/Services/SubscriptionStore.cs` and the controller layer
-- [ ] T012 [P] [US1] Implement add-subscription form logic in `frontend/RSSFeedReader.UI/Pages/Subscriptions.razor`
-- [ ] T013 [US1] Connect the page to `SubscriptionApiClient` and refresh the displayed list after successful submission
-- [ ] T014 [US1] Verify the UI updates immediately after submission and show the list with the newly added URL
+- [X] T010 [US1] Implement `POST /api/subscriptions` in `backend/RSSFeedReader.Api/Controllers/SubscriptionsController.cs` to accept a URL and return current subscription list
+- [X] T011 [US1] Add validation for blank and duplicate submissions in `backend/RSSFeedReader.Api/Services/SubscriptionStore.cs` and the controller layer
+- [X] T012 [P] [US1] Implement add-subscription form logic in `frontend/RSSFeedReader.UI/Pages/Subscriptions.razor`
+- [X] T013 [US1] Connect the page to `SubscriptionApiClient` and refresh the displayed list after successful submission
+- [X] T014 [US1] Verify the UI updates immediately after submission and show the list with the newly added URL
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and independently testable.
 

@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/backend/">
+    <Project Path="backend/RSSFeedReader.Tests/RSSFeedReader.Tests.csproj" />
+  </Folder>
+</Solution>

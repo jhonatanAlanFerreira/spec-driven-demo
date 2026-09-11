@@ -1,0 +1,72 @@
+﻿@page "/"
+@using System.Net.Http.Json
+@using RSSFeedReader.UI.Models
+@inject HttpClient Http
+
+<PageTitle>Subscriptions</PageTitle>
+
+<h1>Subscriptions</h1>
+
+<div>
+    <input @bind="subscriptionUrl" placeholder="Enter RSS/Atom URL" style="width: 320px; margin-right: 8px;" />
+    <button @onclick="AddSubscription">Add</button>
+</div>
+
+@if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <p style="color: darkred; margin-top: 12px;">@errorMessage</p>
+}
+
+@if (subscriptions.Count == 0)
+{
+    <p style="margin-top: 12px;">No subscriptions yet.</p>
+}
+else
+{
+    <ul style="margin-top: 12px;">
+        @foreach (var item in subscriptions)
+        {
+            <li>@item</li>
+        }
+    </ul>
+}
+
+@code {
+    private string subscriptionUrl = string.Empty;
+    private string errorMessage = string.Empty;
+    private List<string> subscriptions = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadSubscriptions();
+    }
+
+    private async Task LoadSubscriptions()
+    {
+        var response = await Http.GetFromJsonAsync<SubscriptionListResponse>("subscriptions");
+        subscriptions = response?.Subscriptions ?? new List<string>();
+    }
+
+    private async Task AddSubscription()
+    {
+        errorMessage = string.Empty;
+
+        if (string.IsNullOrWhiteSpace(subscriptionUrl))
+        {
+            errorMessage = "Please enter a valid feed URL.";
+            return;
+        }
+
+        var response = await Http.PostAsJsonAsync("subscriptions", new AddSubscriptionRequest { Url = subscriptionUrl });
+
+        if (!response.IsSuccessStatusCode)
+        {
+            errorMessage = "The feed could not be added.";
+            return;
+        }
+
+        var payload = await response.Content.ReadFromJsonAsync<SubscriptionListResponse>();
+        subscriptions = payload?.Subscriptions ?? new List<string>();
+        subscriptionUrl = string.Empty;
+    }
+}
