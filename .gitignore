@@ -1,0 +1,43 @@
+# .NET build outputs
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+*.code-workspace
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+project.lock.json
+
+# Test and coverage artifacts
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+
+# Local environment and secrets
+.env
+.env.*
+*.local.json
+appsettings.Development.Local.json
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary and editor files
+*.tmp
+*.temp
+*.log
+*.swp
+*.bak
